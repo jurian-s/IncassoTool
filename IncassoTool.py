@@ -65,6 +65,7 @@ class IncassoTool:
                                 "Boekstuk": []}
         self.TransSum = 0
         self.nTxs = 0
+        self.maxTypes = 0
         for transaction in InputDict.values():
             self.transaction = transaction
             ID = self.IDdict[transaction['Naam']]
@@ -73,7 +74,9 @@ class IncassoTool:
                 self.nTxs = self.nTxs + 1
             self.TransSum = self.TransSum + transaction["Bedrag"]
             self.TransactionDict[ID]["Oms"].append(transaction['Omschrijving Nederlands'])
-            self.TransactionDict[ID]["OmsEng"].append(transaction["Omschrijving Engels"])        
+            self.TransactionDict[ID]["OmsEng"].append(transaction["Omschrijving Engels"])  
+            self.TransactionDict[ID]["Bedrag"].append(transaction["Bedrag"])  
+            self.maxTypes = max(self.maxTypes, len(self.TransactionDict[ID]['Oms']))
             self.TransactionDict[ID]["TransactionSum"] = self.TransactionDict[ID]["TransactionSum"] + transaction["Bedrag"]
             self.addTransToEboekhouden(transaction, ID)
             
@@ -84,6 +87,7 @@ class IncassoTool:
         self.TransactionDict[ID] = {}
         self.TransactionDict[ID]["Oms"] = []
         self.TransactionDict[ID]["OmsEng"] = []
+        self.TransactionDict[ID]["Bedrag"] = []
         self.TransactionDict[ID]["TransactionSum"] = 0
         self.TransactionDict[ID]["TransactionBoekHouden"] = []
         
@@ -139,18 +143,37 @@ class IncassoTool:
 
         DDTransactions = [{}] * self.nTxs
         for Ind, ID in enumerate(self.TransactionDict):
-            LidInfo = self.Leden[ID]
+            Lid = self.Leden[ID]
             DDTransactions[Ind] = {'PmtId': {'EndToEndId': f"{self.MsgId}A-{Ind:>04}"},
                                    'InstdAmt': {'@Ccy': 'EUR', '#text': str(self.TransactionDict[ID]["TransactionSum"])},
-                                   'DrctDbtTx': {'MndtRltdInf': {'MndtId': LidInfo["Incasso ID"],
-                                   'DtOfSgntr': LidInfo["Mandate Date"]}},
-                                   'DbtrAgt': {'FinInstnId': {'BIC': LidInfo["BIC"]}},
-                                   'Dbtr': {'Nm': LidInfo["Bank Holder Name"]},
-                                   'DbtrAcct': {'Id': {'IBAN': LidInfo["IBAN"]}},
+                                   'DrctDbtTx': {'MndtRltdInf': {'MndtId': Lid["Incasso ID"],
+                                   'DtOfSgntr': Lid["Mandate Date"]}},
+                                   'DbtrAgt': {'FinInstnId': {'BIC': Lid["BIC"]}},
+                                   'Dbtr': {'Nm': Lid["Bank Holder Name"]},
+                                   'DbtrAcct': {'Id': {'IBAN': Lid["IBAN"]}},
                                    'RmtInf': {'Ustrd': self.IncassoNaam}}
         XML["Document"]["CstmrDrctDbtInitn"]["PmtInf"]["DrctDbtTxInf"] = DDTransactions
         with open(Path, "w") as file:
            file.write(xmltodict.unparse(XML, pretty=True))
+           
+    def saveMailMerge(self, Path):
+        MailMergeDict = {}
+        for ID in self.TransactionDict:
+            Trans = self.TransactionDict[ID]
+            Lid = self.Leden[ID]
+            MailMergeDict[ID] = [Lid["Voornaam"], Lid["Mail"], Trans["TransactionSum"]]
+            for Ind, Oms in enumerate(Trans["Oms"]):
+                MailMergeDict[ID].append(Oms)
+                MailMergeDict[ID].append(Trans["OmsEng"][Ind])
+                MailMergeDict[ID].append(Trans["Bedrag"][Ind])
+        MailMergeHeader = ["Naam", "Email", "Totaal"]
+        for i in range(self.maxTypes):
+            MailMergeHeader.append(f"Oms{i+1}a")
+            MailMergeHeader.append(f"Oms{i+1}b")
+            MailMergeHeader.append(f"Bedrag{i+1}")
+        MailMergeDF = pd.DataFrame.from_dict(MailMergeDict, orient="index", columns=MailMergeHeader)
+        MailMergeDF.to_csv(Path)
+            
             
         
         
@@ -166,6 +189,7 @@ if __name__ == "__main__":
     Tool.saveEBoekhoudenGiro(r"C:\Users\juria\Downloads\FebEboekhoudenGiro.csv")
     Tool.saveEBoekhoudenFactuur(r"C:\Users\juria\Downloads\FebEboekhoudenFact.csv")
     Tool.saveIncassoXML(r"C:\Users\juria\Downloads\PennieTools\emptyIncasso.xml", r"C:\Users\juria\Downloads\PennieTools\Incasso.xml")
+    Tool.saveMailMerge(r"C:\Users\juria\Downloads\MailMerge.csv")
 
         
 
