@@ -21,10 +21,11 @@ class LedenbestandParser:
                 "Naam": Lid["Name"],
                 "Voornaam": Lid["First name"],
                 "Mail": Lid["Contact details email address"],
-                "Bank Holder name": Lid["Bank account holder name"],
+                "Incasso ID": Lid["Incasso id"],
+                "Bank Holder Name": Lid["Bank account holder name"],
                 "IBAN": Lid["Bank account IBAN"],
                 "BIC": Lid["Bank account BIC"],
-                "Mandate date": Lid["Bank Mandate Date (dd-mm-yyyy)"]}
+                "Mandate Date": Lid["Bank Mandate Date (dd-mm-yyyy)"]}
             
             
     def Save(self, Path):
