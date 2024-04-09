@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02">
+	<CstmrDrctDbtInitn>
+		<GrpHdr>
+			<MsgId>PUNDD20240302-1B</MsgId>
+			<CreDtTm>2024-02-29T17:29:44.210</CreDtTm>
+			<NbOfTxs>0</NbOfTxs>
+			<CtrlSum>0</CtrlSum>
+			<InitgPty>
+				<Nm>DSVV Punch</Nm>
+			</InitgPty>
+		</GrpHdr>
+		<PmtInf>
+			<PmtInfId>PUNDD20240302-1BA</PmtInfId>
+			<PmtMtd>DD</PmtMtd>
+			<NbOfTxs>0</NbOfTxs>
+			<CtrlSum>0</CtrlSum>
+			<PmtTpInf>
+				<SvcLvl>
+					<Cd>SEPA</Cd>
+				</SvcLvl>
+				<LclInstrm>
+					<Cd>CORE</Cd>
+				</LclInstrm>
+				<SeqTp>RCUR</SeqTp>
+			</PmtTpInf>
+			<ReqdColltnDt>2024-03-02</ReqdColltnDt>
+			<Cdtr>
+				<Nm>DSVV Punch</Nm>
+			</Cdtr>
+			<CdtrAcct>
+				<Id>
+					<IBAN>NL33SNSB0339513241</IBAN>
+				</Id>
+			</CdtrAcct>
+			<CdtrAgt>
+				<FinInstnId>
+					<BIC>SNSBNL2A</BIC>
+				</FinInstnId>
+			</CdtrAgt>
+			<CdtrSchmeId>
+				<Id>
+					<PrvtId>
+						<Othr>
+							<Id>NL77ZZZ403975770000</Id>
+							<SchmeNm>
+								<Prtry>SEPA</Prtry>
+							</SchmeNm>
+						</Othr>
+					</PrvtId>
+				</Id>
+			</CdtrSchmeId>
+			<DrctDbtTxInf></DrctDbtTxInf>
+		</PmtInf>
+	</CstmrDrctDbtInitn>
+</Document>
