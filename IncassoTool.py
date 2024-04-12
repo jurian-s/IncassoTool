@@ -19,24 +19,51 @@ class IncassoTool:
     def LoadLedenBestand(self, path):
         with open(path) as f:
             Ledenbestand = json.load(f)
+        self.LBCreationDate = Ledenbestand["Generation date"]
         self.IDdict = Ledenbestand["ID"]
         self.Leden = Ledenbestand["LidByID"]
         
     def LoadFactuurnummers(self, path):
-        File = pd.read_excel(ImportPath, sheet_name="E-boekhoud Factuurnummers")
+        with open(path) as f:
+            self.FactuurDict = json.load(f)
+            
+    def LoadFactuurnummersFromExcel(self, path):
+        File = pd.read_excel(path, sheet_name="E-boekhoud Factuurnummers")
         self.FactuurDict = {}
         Filedict = File.to_dict(orient="index")
         for row in Filedict.values():
             self.FactuurDict[row["Activiteitscode"]] = {
                 "DEBrekening": row["DEBrekening"],
-                "Tegenrekening": row["Tegenrekening"],
+                "Tegenrekening": row["TegenreFackening"],
                 'Kostenplaats': row["Kostenplaats"]}
         
-        
+    def SaveFactuurnummers(self, path):
+        with open(path, "w") as f:
+            json.dump(self.FactuurDict, f, indent=4)   
     
-    def ParseInput(self, ImportPath, IncassoDate):
-        File = pd.read_excel(ImportPath, sheet_name="Invoer", skiprows=4)
-        InputDict = File.to_dict(orient="index")
+    def LoadInput(self, ImportPath):
+        self.InputFile = pd.read_excel(ImportPath, sheet_name="Invoer", skiprows=4)
+        
+    def SaveInput(self, ImportPath):
+        self.InputFile.to_csv(ImportPath)
+        
+    def CheckActCodes(self):
+        self.InvalidCodes = []
+        for Ind, Code in enumerate(self.InputFile["Activiteitcode"]):
+            if Code not in self.FactuurDict.keys():
+                self.InvalidCodes.append(Ind)
+    
+    def CheckNamen(self):
+        self.InvalidNames = []
+        self.PunchIbanNames = []
+        for Ind, Naam in enumerate(self.InputFile["Naam"]):
+            if Naam not in self.IDdict.keys():
+                self.InvalidNames.append(Ind)
+            elif self.Leden[self.IDdict[Naam]]["IBAN"] == "NL33SNSB0339513241":
+                self.PunchIbanNames.append(Ind)
+        
+    def ParseInput(self, IncassoDate):
+        InputDict = self.InputFile.to_dict(orient="index")
         CurrentDatetime = datetime.now()
         self.IncassoDate = IncassoDate
         self.IncassoNaam = CurrentDatetime.strftime("Incasso DSVV Punch %B '%y")
