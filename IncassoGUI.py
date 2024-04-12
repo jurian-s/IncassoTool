@@ -8,7 +8,7 @@ Created on Thu Apr 11 21:06:16 2024
 import sys
 import IncassoTool
 from PySide6 import QtWidgets, QtGui
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QDate
 
 
 class IncassoGUI(QtWidgets.QWidget):
@@ -30,11 +30,19 @@ class IncassoGUI(QtWidgets.QWidget):
         self.ParseButton = QtWidgets.QPushButton("Genereer bestanden")
         self.ParseButton.clicked.connect(self.ParseandSave)
         
+        
+        self.date_edit = QtWidgets.QDateEdit()
+        self.date_edit.setMinimumDate(QDate.currentDate())
+        self.date_edit.setMaximumDate(QDate.currentDate().addMonths(3)) 
+        self.date_edit.setDisplayFormat("dd-MM-yyyy")
+        self.date_edit.setCalendarPopup(True)
+           
         self.ParseButton.setEnabled(False)
         self.layout = QtWidgets.QVBoxLayout(self)
         self.layout.addWidget(self.LoadInputFileButton)
         self.layout.addWidget(self.EditFactuurnummersButton)
         self.layout.addWidget(self.LedenbestandDate)
+        self.layout.addWidget(self.date_edit)
         self.layout.addWidget(self.ParseButton)
         
     def PushedLoadInputFileButton(self):
@@ -93,7 +101,8 @@ class IncassoGUI(QtWidgets.QWidget):
     def ParseandSave(self):
         self.saveDialog = QtWidgets.QFileDialog.getExistingDirectory(self, "Save Directory")
         try:
-            self.Incasso.ParseInput("01-01-2023")
+            print(self.date_edit.date().toString("dd-MM-yyyy"))
+            self.Incasso.ParseInput(self.date_edit.date().toString("dd-MM-yyyy"))
         except ValueError as e:
             self.show_error_message(str(e))
         self.Incasso.SaveInput(f"{self.saveDialog}//Input_{self.Incasso.MsgId}.csv")
