@@ -7,6 +7,8 @@ Created on Tue Apr  9 20:55:59 2024
 
 import pandas as pd
 import json
+import re
+import logging
 from datetime import datetime
 
 class LedenbestandParser:
@@ -15,7 +17,13 @@ class LedenbestandParser:
         Ledenbestand = File.to_dict(orient="index")
         self.IDdict = {}
         self.LedenDict = {}
+        self.InvalidBIClist = []
         for Lid in Ledenbestand.values():
+            if not self.is_valid_bic(Lid["Bank account BIC"]):
+                logging.warning(f"BIC of {Lid['Name']} ({Lid['Bank account BIC']}) is not valid")
+                self.InvalidBIClist.append(f"BIC of {Lid['Name']} ({Lid['Bank account BIC']}) is not valid")
+            if not self.is_valid_iban(Lid["Bank account IBAN"]):
+                raise ValueError(f"IBAN of {Lid['Name']} ({Lid['Bank account IBAN']})is not valid")
             self.IDdict[Lid['Name']] = Lid["Punch code"]
             self.LedenDict[Lid["Punch code"]] = {
                 "Naam": Lid["Name"],
@@ -34,6 +42,15 @@ class LedenbestandParser:
                         "LidByID": self.LedenDict}
         with open(Path, "w") as f:
             json.dump(LedenBestand, f, indent=4)
+            
+            
+    def is_valid_bic(self, bic):
+        pattern = re.compile(r'^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$')
+        return bool(pattern.match(bic))
+    
+    def is_valid_iban(self, iban):
+        pattern = re.compile(r'^[A-Z]{2}\d{2}[A-Z\d]{11,30}$')
+        return bool(pattern.match(iban))
         
             
 if __name__ == "__main__":

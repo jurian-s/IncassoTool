@@ -10,7 +10,7 @@ import pandas as pd
 import json
 from datetime import datetime
 import xmltodict
-
+import re
 
 
 
@@ -42,10 +42,15 @@ class IncassoTool:
             json.dump(self.FactuurDict, f, indent=4)   
     
     def LoadInput(self, ImportPath):
-        self.InputFile = pd.read_excel(ImportPath, sheet_name="Invoer", skiprows=4)
-        
+        if ImportPath.split('.')[-1] == "csv":
+            self.InputFile = pd.read_csv(ImportPath)            
+        else:            
+            self.InputFile = pd.read_excel(ImportPath, sheet_name="Invoer", skiprows=1)
+        if self.InputFile.keys().tolist() != ['Naam','Bedrag','Omschrijving Nederlands','Omschrijving Engels','Datum van activiteit','Activiteitcode','Factuurnummer']:
+            raise ValueError("Input bestand bevat niet de correcte headers, controleer of je het juiste bestand importeert")
+            
     def SaveInput(self, ImportPath):
-        self.InputFile.to_csv(ImportPath)
+        self.InputFile.to_csv(ImportPath, index=False)
         
     def CheckActCodes(self):
         self.InvalidCodes = []
@@ -56,9 +61,12 @@ class IncassoTool:
     def CheckNamen(self):
         self.InvalidNames = []
         self.PunchIbanNames = []
+        self.InvalidBICs = []
         for Ind, Naam in enumerate(self.InputFile["Naam"]):
             if Naam not in self.IDdict.keys():
                 self.InvalidNames.append(Ind)
+            elif not self.is_valid_bic(self.Leden[self.IDdict[Naam]]["BIC"]):
+                self.InvalidBICs.append(Ind)
             elif self.Leden[self.IDdict[Naam]]["IBAN"] == "NL33SNSB0339513241":
                 self.PunchIbanNames.append(Ind)
         
@@ -94,18 +102,21 @@ class IncassoTool:
         self.nTxs = 0
         self.maxTypes = 0
         for transaction in InputDict.values():
-            self.transaction = transaction
             ID = self.IDdict[transaction['Naam']]
-            if ID not in self.TransactionDict.keys():
-                self.addIDtoTransactionDict(ID)
-                self.nTxs = self.nTxs + 1
-            self.TransSum = self.TransSum + transaction["Bedrag"]
-            self.TransactionDict[ID]["Oms"].append(transaction['Omschrijving Nederlands'])
-            self.TransactionDict[ID]["OmsEng"].append(transaction["Omschrijving Engels"])  
-            self.TransactionDict[ID]["Bedrag"].append(transaction["Bedrag"])  
-            self.maxTypes = max(self.maxTypes, len(self.TransactionDict[ID]['Oms']))
-            self.TransactionDict[ID]["TransactionSum"] = self.TransactionDict[ID]["TransactionSum"] + transaction["Bedrag"]
-            self.addTransToEboekhouden(transaction, ID)
+            Incasseerbaar = True
+            if not self.is_valid_bic(self.Leden[ID]["BIC"]) or self.Leden[ID]["IBAN"] == "NL33SNSB0339513241":
+                Incasseerbaar = False
+            else:
+                if ID not in self.TransactionDict.keys():
+                    self.addIDtoTransactionDict(ID)
+                    self.nTxs = self.nTxs + 1
+                self.TransSum = self.TransSum + transaction["Bedrag"]
+                self.TransactionDict[ID]["Oms"].append(transaction['Omschrijving Nederlands'])
+                self.TransactionDict[ID]["OmsEng"].append(transaction["Omschrijving Engels"])  
+                self.TransactionDict[ID]["Bedrag"].append(transaction["Bedrag"])  
+                self.maxTypes = max(self.maxTypes, len(self.TransactionDict[ID]['Oms']))
+                self.TransactionDict[ID]["TransactionSum"] = self.TransactionDict[ID]["TransactionSum"] + transaction["Bedrag"]
+            self.addTransToEboekhouden(transaction, ID, Incasseerbaar)
             
     
      
@@ -118,22 +129,22 @@ class IncassoTool:
         self.TransactionDict[ID]["TransactionSum"] = 0
         self.TransactionDict[ID]["TransactionBoekHouden"] = []
         
-    def addTransToEboekhouden(self, Trans, ID):
-        date = datetime.strptime(self.IncassoDate, '%d-%m-%Y')
+    def addTransToEboekhouden(self, Trans, ID, Incasseerbaar):
+        date = datetime.strptime(self.IncassoDate, '%Y-%m-%d')
         MY = date.strftime("%y{}").format(date.month)
-        self.EboekhoudenGiro["Datum"].append(self.IncassoDate)
-        self.EboekhoudenGiro["Omschrijving"].append("{oms} - {naam}".format(oms = Trans["Omschrijving Nederlands"], naam= Trans["Naam"]))
-        self.EboekhoudenGiro["Bedrag (EUR)"].append(Trans["Bedrag"])
-        self.EboekhoudenGiro["MutatieSoort"].append("Factuurbetaling ontvangen")
-        self.EboekhoudenGiro["Relatie"].append("P"+ID)
-        if str(Trans["Factuurnummer"]) != "nan":
-            self.EboekhoudenGiro["Factuurnummer"].append(Trans["Factuurnummer"])
-        else:
-            self.EboekhoudenGiro["Factuurnummer"].append("{ID}-{ActCode}-{MY}".format(ID = ID[2:].replace("-", ""), ActCode=Trans['Activiteitcode'], MY =MY))
-        self.EboekhoudenGiro["Tegenrekening"].append(self.FactuurDict[Trans["Activiteitcode"]]["DEBrekening"])
-        self.EboekhoudenGiro["Rekening"].append("11910")
-        self.EboekhoudenGiro["Boekstuk"].append("GI" + MY)
-        self.Trans = Trans
+        if Incasseerbaar:
+            self.EboekhoudenGiro["Datum"].append(self.IncassoDate)
+            self.EboekhoudenGiro["Omschrijving"].append("{oms} - {naam}".format(oms = Trans["Omschrijving Nederlands"], naam= Trans["Naam"]))
+            self.EboekhoudenGiro["Bedrag (EUR)"].append(Trans["Bedrag"])
+            self.EboekhoudenGiro["MutatieSoort"].append("Factuurbetaling ontvangen")
+            self.EboekhoudenGiro["Relatie"].append("P"+ID)
+            if str(Trans["Factuurnummer"]) != "nan":
+                self.EboekhoudenGiro["Factuurnummer"].append(Trans["Factuurnummer"])
+            else:
+                self.EboekhoudenGiro["Factuurnummer"].append("{ID}-{ActCode}-{MY}".format(ID = ID[2:].replace("-", ""), ActCode=Trans['Activiteitcode'], MY =MY))
+            self.EboekhoudenGiro["Tegenrekening"].append(self.FactuurDict[Trans["Activiteitcode"]]["DEBrekening"])
+            self.EboekhoudenGiro["Rekening"].append("11910")
+            self.EboekhoudenGiro["Boekstuk"].append("GI" + MY)
         if str(Trans["Factuurnummer"]) == "nan":
             self.EboekhoudenFact["Datum"].append(Trans["Datum van activiteit"])
             self.EboekhoudenFact["Omschrijving"].append("{oms} - {naam}".format(oms = Trans["Omschrijving Nederlands"], naam= Trans["Naam"]))
@@ -147,14 +158,18 @@ class IncassoTool:
             self.EboekhoudenFact["Betalingstermijn"].append(30)
             self.EboekhoudenFact["Kostenplaats"].append(self.FactuurDict[Trans["Activiteitcode"]]["Kostenplaats"])
             
-            
+    def is_valid_bic(self, bic):
+        pattern = re.compile(r'^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$')
+        return bool(pattern.match(bic))
+    
+    
     def saveEBoekhoudenGiro(self, Path):
         GiroDF = pd.DataFrame(self.EboekhoudenGiro)
-        GiroDF.to_csv(Path)
+        GiroDF.to_csv(Path, index=False)
         
     def saveEBoekhoudenFactuur(self, Path):
         FactuurDF = pd.DataFrame(self.EboekhoudenFact)
-        FactuurDF.to_csv(Path)
+        FactuurDF.to_csv(Path, index=False)
         
     def saveIncassoXML(self, EmptyXMLPath, Path):
         with open(EmptyXMLPath) as file:
@@ -199,7 +214,7 @@ class IncassoTool:
             MailMergeHeader.append(f"Oms{i+1}b")
             MailMergeHeader.append(f"Bedrag{i+1}")
         MailMergeDF = pd.DataFrame.from_dict(MailMergeDict, orient="index", columns=MailMergeHeader)
-        MailMergeDF.to_csv(Path)
+        MailMergeDF.to_csv(Path, index=False)
             
             
         

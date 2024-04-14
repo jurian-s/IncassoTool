@@ -1,362 +1,367 @@
 {
-"PAH-20": {
-"DEBrekening": 20310,
-"Tegenrekening": 40300,
-"Kostenplaats": "BOOD '20-'21"
-},
-"CON2122-1": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"CON2122-2": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"BIBS21": {
-"DEBrekening": 21410,
-"Tegenrekening": 41400,
-"Kostenplaats": "BIBS '21"
-},
-"BAB2022": {
-"DEBrekening": 11660,
-"Tegenrekening": 32020,
-"Kostenplaats": "Punch"
-},
-"LW1-2021": {
-"DEBrekening": 20910,
-"Tegenrekening": 40900,
-"Kostenplaats": "LuCie XIV"
-},
-"KLEDING": {
-"DEBrekening": 11650,
-"Tegenrekening": 12998,
-"Kostenplaats": "Punch"
-},
-"LW1-2021-LD": {
-"DEBrekening": 20910,
-"Tegenrekening": 40900,
-"Kostenplaats": "LuCie XIV"
-},
-"LW1-2021-M": {
-"DEBrekening": 20910,
-"Tegenrekening": 40900,
-"Kostenplaats": "LuCie XIV"
-},
-"LW1-2021-SV": {
-"DEBrekening": 20910,
-"Tegenrekening": 40900,
-"Kostenplaats": "LuCie XIV"
-},
-"OBOOTC21": {
-"DEBrekening": 20410,
-"Tegenrekening": 40400,
-"Kostenplaats": "Bootcamp '21-'22"
-},
-"TRAINTOE2122": {
-"DEBrekening": 11660,
-"Tegenrekening": 31030,
-"Kostenplaats": "Punch"
-},
-"CHILLPANTS2122": {
-"DEBrekening": 11660,
-"Tegenrekening": 33100,
-"Kostenplaats": "Punch"
-},
-"LUSTRUMBIER2021": {
-"DEBrekening": 11660,
-"Tegenrekening": 12998,
-"Kostenplaats": "Punch"
-},
-"ENTREE2223": {
-"DEBrekening": 11660,
-"Tegenrekening": 31060,
-"Kostenplaats": "Punch"
-},
-"KLEDING-SHIRT": {
-"DEBrekening": 11650,
-"Tegenrekening": 11210,
-"Kostenplaats": "Punch"
-},
-"KLEDING-BROEK": {
-"DEBrekening": 11650,
-"Tegenrekening": 11220,
-"Kostenplaats": "Punch"
-},
-"UITSCHRIJFBOETE2223": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"BOODPIZZA210930": {
-"DEBrekening": 20310,
-"Tegenrekening": 40300,
-"Kostenplaats": "BOOD '21-'22"
-},
-"OWEEMERCH22": {
-"DEBrekening": 21110,
-"Tegenrekening": 41100,
-"Kostenplaats": "OWee '22"
-},
-"OWEEETEN22": {
-"DEBrekening": 21110,
-"Tegenrekening": 41100,
-"Kostenplaats": "OWee '22"
-},
-"DIRK1920": {
-"DEBrekening": 20510,
-"Tegenrekening": 40500,
-"Kostenplaats": "D.I.R.K."
-},
-"AKCIESUP2021": {
-"DEBrekening": 20170,
-"Tegenrekening": 40100,
-"Kostenplaats": "Suppen en geocash '21"
-},
-"HOPBORRELZOMER": {
-"DEBrekening": 20910,
-"Tegenrekening": 40900,
-"Kostenplaats": "LuCie XIV"
-},
-"SPIKEBALLZOMER": {
-"DEBrekening": 20910,
-"Tegenrekening": 40900,
-"Kostenplaats": "LuCie XIV"
-},
-"LUCIESCHILDER": {
-"DEBrekening": 20910,
-"Tegenrekening": 40900,
-"Kostenplaats": "LuCie XIV"
-},
-"KALENDER2223": {
-"DEBrekening": 20810,
-"Tegenrekening": 40800,
-"Kostenplaats": "Kalender '22-'23"
-},
-"BATA21": {
-"DEBrekening": 20210,
-"Tegenrekening": 40200,
-"Kostenplaats": "BaKo '20-'21"
-},
-"FRISBBQ": {
-"DEBrekening": 11660,
-"Tegenrekening": 12998,
-"Kostenplaats": "Fris BBQ"
-},
-"SPOENKSPORT21": {
-"DEBrekening": 21510,
-"Tegenrekening": 41500,
-"Kostenplaats": "Sportdag 21"
-},
-"SJIEK20": {
-"DEBrekening": 20150,
-"Tegenrekening": 40100,
-"Kostenplaats": "Sjiek 20"
-},
-"PQOT21": {
-"DEBrekening": 21410,
-"Tegenrekening": 41400,
-"Kostenplaats": "PQOT 21"
-},
-"BALVERKOOP2021": {
-"DEBrekening": 11660,
-"Tegenrekening": 31050,
-"Kostenplaats": "Punch"
-},
-"DRANKJAV21": {
-"DEBrekening": 11660,
-"Tegenrekening": 32151,
-"Kostenplaats": "Punch"
-},
-"TRAINTOETERUG2021": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"CONTERUG2021": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"CLCON2223-1": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"CLCON2223-2": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"BLCON2223": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"STATIEOWEE2021": {
-"DEBrekening": 21110,
-"Tegenrekening": 41100,
-"Kostenplaats": "OWee '21"
-},
-"RJC-21": {
-"DEBrekening": 20110,
-"Tegenrekening": 40100,
-"Kostenplaats": "RJCBBQ '21"
-},
-"BOETENEVOBO22": {
-"DEBrekening": 11660,
-"Tegenrekening": 12998,
-"Kostenplaats": "Punch"
-},
-"SJAALVERKOOP": {
-"DEBrekening": 11660,
-"Tegenrekening": 11230,
-"Kostenplaats": "Punch"
-},
-"ZEBRAVERKOOP": {
-"DEBrekening": 11660,
-"Tegenrekening": 31050,
-"Kostenplaats": "Punch"
-},
-"DRANKINTERNACHOEVENING22": {
-"DEBrekening": 20610,
-"Tegenrekening": 40600,
-"Kostenplaats": "InternachoCo '21-'22"
-},
-"AKCIEDATE21": {
-"DEBrekening": 20150,
-"Tegenrekening": 40100,
-"Kostenplaats": "Datepakketten '21"
-},
-"AKCIEPIQ22": {
-"DEBrekening": 20130,
-"Tegenrekening": 40100,
-"Kostenplaats": "PIQ '22"
-},
-"AKCIESJIEK21-2": {
-"DEBrekening": 20150,
-"Tegenrekening": 40100,
-"Kostenplaats": "SJIEK '21"
-},
-"BASECAMP21": {
-"DEBrekening": 21610,
-"Tegenrekening": 41600,
-"Kostenplaats": "Basecamp '21"
-},
-"FOTOBOEK22": {
-"DEBrekening": 20510,
-"Tegenrekening": 40500,
-"Kostenplaats": "D.I.R.K."
-},
-"LUSTRUMBIER2122": {
-"DEBrekening": 11660,
-"Tegenrekening": 12998,
-"Kostenplaats": "Voorgeschoten bedragen"
-},
-"SJAAKFEEST22": {
-"DEBrekening": 21310,
-"Tegenrekening": 41300,
-"Kostenplaats": "Sjaakfeest '22"
-},
-"LUSTRUMFEEST22": {
-"DEBrekening": 21710,
-"Tegenrekening": 41700,
-"Kostenplaats": "Dieskommissie '21-'22"
-},
-"POB23": {
-"DEBrekening": 21110,
-"Tegenrekening": 41100,
-"Kostenplaats": "POB '23"
-},
-"PIZZAAVEESTJE22": {
-"DEBrekening": 11660,
-"Tegenrekening": 12998,
-"Kostenplaats": "Voorgeschoten bedragen"
-},
-"VNL2023": {
-"DEBrekening": 11660,
-"Tegenrekening": 12998,
-"Kostenplaats": "Voorgeschoten bedragen"
-},
-"PUNCHLUNCH21": {
-"DEBrekening": 21310,
-"Tegenrekening": 41300,
-"Kostenplaats": "Punchlunch '21"
-},
-"PUNCHLUNCH22": {
-"DEBrekening": 21310,
-"Tegenrekening": 41300,
-"Kostenplaats": "Punchlunch '22"
-},
-"OBT23": {
-"DEBrekening": 21410,
-"Tegenrekening": 41400,
-"Kostenplaats": "Oliebollentoernooi '23"
-},
-"REDCUPCUP23": {
-"DEBrekening": 21410,
-"Tegenrekening": 41400,
-"Kostenplaats": "Redcup Cup '23"
-},
-"CLCON2324-1": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"BLPCON2324": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"ENTREE2324": {
-"DEBrekening": 11660,
-"Tegenrekening": 31060,
-"Kostenplaats": "Punch"
-},
-"IVABOETE2324": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"UITSCHRIJFBOETE2324": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"CLCON2324-2": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"BOETEOVERIG2324": {
-"DEBrekening": 11620,
-"Tegenrekening": 31020,
-"Kostenplaats": "Punch"
-},
-"AKCIESJIEK22": {
-"DEBrekening": 20150,
-"Tegenrekening": 40100,
-"Kostenplaats": "SJIEK '22"
-},
-"PIZZABAV2023": {
-"DEBrekening": 11660,
-"Tegenrekening": 12998,
-"Kostenplaats": "Voorgeschoten bedragen"
-},
-"TRAINTOE2324": {
-"DEBrekening": 11660,
-"Tegenrekening": 31030,
-"Kostenplaats": "Punch"
-},
-"OORDOPJES": {
-"DEBrekening": 11660,
-"Tegenrekening": 11250,
-"Kostenplaats": "Punch"
-},
-"Test": {
-"DEBrekening": 10,
-"Tegenrekening": 10,
-"Kostenplaats": "Punch"
-}
+    "PAH-20": {
+        "DEBrekening": 20310,
+        "Tegenrekening": 40300,
+        "Kostenplaats": "BOOD '20-'21"
+    },
+    "CON2122-1": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "CON2122-2": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "BIBS21": {
+        "DEBrekening": 21410,
+        "Tegenrekening": 41400,
+        "Kostenplaats": "BIBS '21"
+    },
+    "BAB2022": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 32020,
+        "Kostenplaats": "Punch"
+    },
+    "LW1-2021": {
+        "DEBrekening": 20910,
+        "Tegenrekening": 40900,
+        "Kostenplaats": "LuCie XIV"
+    },
+    "KLEDING": {
+        "DEBrekening": 11650,
+        "Tegenrekening": 12998,
+        "Kostenplaats": "Punch"
+    },
+    "LW1-2021-LD": {
+        "DEBrekening": 20910,
+        "Tegenrekening": 40900,
+        "Kostenplaats": "LuCie XIV"
+    },
+    "LW1-2021-M": {
+        "DEBrekening": 20910,
+        "Tegenrekening": 40900,
+        "Kostenplaats": "LuCie XIV"
+    },
+    "LW1-2021-SV": {
+        "DEBrekening": 20910,
+        "Tegenrekening": 40900,
+        "Kostenplaats": "LuCie XIV"
+    },
+    "OBOOTC21": {
+        "DEBrekening": 20410,
+        "Tegenrekening": 40400,
+        "Kostenplaats": "Bootcamp '21-'22"
+    },
+    "TRAINTOE2122": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 31030,
+        "Kostenplaats": "Punch"
+    },
+    "CHILLPANTS2122": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 33100,
+        "Kostenplaats": "Punch"
+    },
+    "LUSTRUMBIER2021": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 12998,
+        "Kostenplaats": "Punch"
+    },
+    "ENTREE2223": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 31060,
+        "Kostenplaats": "Punch"
+    },
+    "KLEDING-SHIRT": {
+        "DEBrekening": 11650,
+        "Tegenrekening": 11210,
+        "Kostenplaats": "Punch"
+    },
+    "KLEDING-BROEK": {
+        "DEBrekening": 11650,
+        "Tegenrekening": 11220,
+        "Kostenplaats": "Punch"
+    },
+    "UITSCHRIJFBOETE2223": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "BOODPIZZA210930": {
+        "DEBrekening": 20310,
+        "Tegenrekening": 40300,
+        "Kostenplaats": "BOOD '21-'22"
+    },
+    "OWEEMERCH22": {
+        "DEBrekening": 21110,
+        "Tegenrekening": 41100,
+        "Kostenplaats": "OWee '22"
+    },
+    "OWEEETEN22": {
+        "DEBrekening": 21110,
+        "Tegenrekening": 41100,
+        "Kostenplaats": "OWee '22"
+    },
+    "DIRK1920": {
+        "DEBrekening": 20510,
+        "Tegenrekening": 40500,
+        "Kostenplaats": "D.I.R.K."
+    },
+    "AKCIESUP2021": {
+        "DEBrekening": 20170,
+        "Tegenrekening": 40100,
+        "Kostenplaats": "Suppen en geocash '21"
+    },
+    "HOPBORRELZOMER": {
+        "DEBrekening": 20910,
+        "Tegenrekening": 40900,
+        "Kostenplaats": "LuCie XIV"
+    },
+    "SPIKEBALLZOMER": {
+        "DEBrekening": 20910,
+        "Tegenrekening": 40900,
+        "Kostenplaats": "LuCie XIV"
+    },
+    "LUCIESCHILDER": {
+        "DEBrekening": 20910,
+        "Tegenrekening": 40900,
+        "Kostenplaats": "LuCie XIV"
+    },
+    "KALENDER2223": {
+        "DEBrekening": 20810,
+        "Tegenrekening": 40800,
+        "Kostenplaats": "Kalender '22-'23"
+    },
+    "BATA21": {
+        "DEBrekening": 20210,
+        "Tegenrekening": 40200,
+        "Kostenplaats": "BaKo '20-'21"
+    },
+    "FRISBBQ": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 12998,
+        "Kostenplaats": "Fris BBQ"
+    },
+    "SPOENKSPORT21": {
+        "DEBrekening": 21510,
+        "Tegenrekening": 41500,
+        "Kostenplaats": "Sportdag 21"
+    },
+    "SJIEK20": {
+        "DEBrekening": 20150,
+        "Tegenrekening": 40100,
+        "Kostenplaats": "Sjiek 20"
+    },
+    "PQOT21": {
+        "DEBrekening": 21410,
+        "Tegenrekening": 41400,
+        "Kostenplaats": "PQOT 21"
+    },
+    "BALVERKOOP2021": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 31050,
+        "Kostenplaats": "Punch"
+    },
+    "DRANKJAV21": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 32151,
+        "Kostenplaats": "Punch"
+    },
+    "TRAINTOETERUG2021": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "CONTERUG2021": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "CLCON2223-1": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "CLCON2223-2": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "BLCON2223": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "STATIEOWEE2021": {
+        "DEBrekening": 21110,
+        "Tegenrekening": 41100,
+        "Kostenplaats": "OWee '21"
+    },
+    "RJC-21": {
+        "DEBrekening": 20110,
+        "Tegenrekening": 40100,
+        "Kostenplaats": "RJCBBQ '21"
+    },
+    "BOETENEVOBO22": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 12998,
+        "Kostenplaats": "Punch"
+    },
+    "SJAALVERKOOP": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 11230,
+        "Kostenplaats": "Punch"
+    },
+    "ZEBRAVERKOOP": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 31050,
+        "Kostenplaats": "Punch"
+    },
+    "DRANKINTERNACHOEVENING22": {
+        "DEBrekening": 20610,
+        "Tegenrekening": 40600,
+        "Kostenplaats": "InternachoCo '21-'22"
+    },
+    "AKCIEDATE21": {
+        "DEBrekening": 20150,
+        "Tegenrekening": 40100,
+        "Kostenplaats": "Datepakketten '21"
+    },
+    "AKCIEPIQ22": {
+        "DEBrekening": 20130,
+        "Tegenrekening": 40100,
+        "Kostenplaats": "PIQ '22"
+    },
+    "AKCIESJIEK21-2": {
+        "DEBrekening": 20150,
+        "Tegenrekening": 40100,
+        "Kostenplaats": "SJIEK '21"
+    },
+    "BASECAMP21": {
+        "DEBrekening": 21610,
+        "Tegenrekening": 41600,
+        "Kostenplaats": "Basecamp '21"
+    },
+    "FOTOBOEK22": {
+        "DEBrekening": 20510,
+        "Tegenrekening": 40500,
+        "Kostenplaats": "D.I.R.K."
+    },
+    "LUSTRUMBIER2122": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 12998,
+        "Kostenplaats": "Voorgeschoten bedragen"
+    },
+    "SJAAKFEEST22": {
+        "DEBrekening": 21310,
+        "Tegenrekening": 41300,
+        "Kostenplaats": "Sjaakfeest '22"
+    },
+    "LUSTRUMFEEST22": {
+        "DEBrekening": 21710,
+        "Tegenrekening": 41700,
+        "Kostenplaats": "Dieskommissie '21-'22"
+    },
+    "POB23": {
+        "DEBrekening": 21110,
+        "Tegenrekening": 41100,
+        "Kostenplaats": "POB '23"
+    },
+    "PIZZAAVEESTJE22": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 12998,
+        "Kostenplaats": "Voorgeschoten bedragen"
+    },
+    "VNL2023": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 12998,
+        "Kostenplaats": "Voorgeschoten bedragen"
+    },
+    "PUNCHLUNCH21": {
+        "DEBrekening": 21310,
+        "Tegenrekening": 41300,
+        "Kostenplaats": "Punchlunch '21"
+    },
+    "PUNCHLUNCH22": {
+        "DEBrekening": 21310,
+        "Tegenrekening": 41300,
+        "Kostenplaats": "Punchlunch '22"
+    },
+    "OBT23": {
+        "DEBrekening": 21410,
+        "Tegenrekening": 41400,
+        "Kostenplaats": "Oliebollentoernooi '23"
+    },
+    "REDCUPCUP23": {
+        "DEBrekening": 21410,
+        "Tegenrekening": 41400,
+        "Kostenplaats": "Redcup Cup '23"
+    },
+    "CLCON2324-1": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "BLPCON2324": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "ENTREE2324": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 31060,
+        "Kostenplaats": "Punch"
+    },
+    "IVABOETE2324": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "UITSCHRIJFBOETE2324": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "CLCON2324-2": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "BOETEOVERIG2324": {
+        "DEBrekening": 11620,
+        "Tegenrekening": 31020,
+        "Kostenplaats": "Punch"
+    },
+    "AKCIESJIEK22": {
+        "DEBrekening": 20150,
+        "Tegenrekening": 40100,
+        "Kostenplaats": "SJIEK '22"
+    },
+    "PIZZABAV2023": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 12998,
+        "Kostenplaats": "Voorgeschoten bedragen"
+    },
+    "TRAINTOE2324": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 31030,
+        "Kostenplaats": "Punch"
+    },
+    "OORDOPJES": {
+        "DEBrekening": 11660,
+        "Tegenrekening": 11250,
+        "Kostenplaats": "Punch"
+    },
+    "Test": {
+        "DEBrekening": 10,
+        "Tegenrekening": 10,
+        "Kostenplaats": "Punch"
+    },
+    "Jelle": {
+        "DEBrekening": 101,
+        "Tegenrekening": 202,
+        "Kostenplaats": "Punch"
+    }
 }
