@@ -1,10 +1,10 @@
-#How to Build
+#  How to Build
 Use python 3.11 to make a virtual environment
 Install required modules with "pip install requirements.txt"
 Build the .exe with "pyside6-deploy IncassoGUI.py"
 (If you don't want the console to be visible, you can use the generated spec file, add --disable-console in the extra-args for Nuitka)
 
-#How to use
+#  How to use
 Start IncassoGUI.exe, en laad de input.xls
 Zorg ervoor dat het ledenbestand up to date is, je kan deze updaten door op Update Ledenbestand te drukken, en een ledenbestand.csv te selecteren die je hebt gedownload van de website. 
 
